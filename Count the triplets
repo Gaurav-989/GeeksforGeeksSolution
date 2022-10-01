@@ -1,0 +1,28 @@
+//Problem Link-https://practice.geeksforgeeks.org/problems/count-the-triplets4615/1
+//Problem Solution
+**********************************************************All test case Passed*******************************************************************************************
+class Solution{
+public:	
+	
+	int countTriplet(int arr[], int n)
+	{
+	    // Your code goes here
+	    unordered_map<int,int> mp;
+	    for(int i=0;i<n;i++){
+	        mp[arr[i]]++;
+	    }
+	    int cnt=0;
+	    for(int i=0;i<n;i++){
+	        for(int j=i+1;j<n;j++){
+	            int av=arr[i]+arr[j];
+	            if(mp.find(av)!=mp.end()){
+	                cnt++;
+	            }
+	        }
+	    }
+	    return cnt;
+	}
+};
+**************************************************************************************************************************************************************************
+//Time Complexity-O(N^2)
+//Space Complexity-O(1)
