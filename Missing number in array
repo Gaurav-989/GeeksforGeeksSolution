@@ -1,0 +1,20 @@
+Problem Link-https://practice.geeksforgeeks.org/problems/missing-number-in-array1416/1
+Problem Solution:
+*************************************************All test case Passed*****************************************************************************************************
+class Solution{
+  public:
+    int MissingNumber(vector<int>& array, int n) {
+        // Your code goes here
+        int sum=(n*(n+1))/2;
+        int arsum=0;
+        for(int i=0;i<n-1;i++){
+            arsum+=array[i];
+        }
+        int ans=sum-arsum;
+        return ans;
+        
+    }
+};
+**************************************************************************************************************************************************************************
+Time Complexity-O(n);
+Space Complexity-O(1);
