@@ -1,0 +1,35 @@
+//Problem link https://practice.geeksforgeeks.org/problems/subarray-with-given-sum-1587115621/1
+//problem Solution
+**************************************************All Test Case Passes*************************************************************************************************
+class Solution
+{
+  
+    public:
+   vector<int> subarraySum(int a[], int n, long long s){
+       int i=0,j=0;
+       long long sum=0;
+       vector<int> v;
+       if(s==0){
+           v.push_back(-1);
+           return v;
+       }
+       while(j<n){
+           sum+=a[j];
+           while(sum>s){
+               sum-=a[i];
+               i++;
+           }
+           if(sum==s){
+               v.push_back(i+1);
+               v.push_back(j+1);
+               return v;
+           }
+           j++;
+       }
+       v.push_back(-1);
+       return v;
+   }
+};
+***********************************************************************************************************************************************************************
+//Time Complexity -O(n)
+//Space Complexity -O(1)
