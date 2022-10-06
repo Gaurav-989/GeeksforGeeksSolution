@@ -1,0 +1,18 @@
+Problem link-https://practice.geeksforgeeks.org/problems/chocolate-distribution-problem/0
+Problem Solution-
+********************************************************All test case Passed**********************************************************************************************
+class Solution{
+    public:
+    long long findMinDiff(vector<long long> a, long long n, long long m){
+    //code
+        sort(a.begin(),a.end());
+        long long dif=a[m-1]-a[0], i;
+        for( i=0; i<=n-m; i++){
+              dif=min(a[i+m-1]-a[i], dif);
+        }
+    return dif;
+    }   
+};
+**************************************************************************************************************************************************************************
+Time Complexity-O(N*LOG(N));
+Space Complexity-O(1);
