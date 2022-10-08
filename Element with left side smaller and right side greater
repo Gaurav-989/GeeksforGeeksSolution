@@ -1,0 +1,26 @@
+Problem Link-https://practice.geeksforgeeks.org/problems/unsorted-array4925/1
+Problem solutioon-
+******************************************************All test case passed************************************************************************************************
+int findElement(int arr[], int n) {
+ // leftMax[i] stores maximum of arr[0..i-1]
+    int leftMax[n], rightMin[n];
+    leftMax[0] = arr[0];
+    // Initialize minimum from right
+    rightMin[n - 1] = arr[n - 1];
+ 
+    // Fill leftMax[]1..n-1]
+    for (int i = 1; i < n; i++) leftMax[i] = max(leftMax[i - 1], arr[i]);
+
+    // Fill rightMin[]1..n-1]
+    for (int i = n - 2; i >= 0; i--) rightMin[i] = min(rightMin[i + 1], arr[i]);
+
+    // Traverse array from right
+    for (int i = 1; i < n - 1; i++) {
+        // Check if we found a required element
+        if (leftMax[i-1] <= arr[i] && rightMin[i + 1] >= arr[i]) return arr[i];
+    }
+
+    // If there was no element matching criteria
+    return -1;
+}
+**************************************************************************************************************************************************************************
